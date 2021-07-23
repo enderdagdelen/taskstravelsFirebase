@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+a{
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+/*     background-image: url('images/pexels-jess-bailey-designs-743986.jpg');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat; */
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+}
+
+.secret_name{
+    color: white;
+}
+/*BUTTONS*/
+button {
+    cursor: pointer;
+}
+
+button:disabled{
+    cursor: default;
+}
+
+.is-active{
+    font-weight: bold;
+}
+
+
+/* INPUT*/
+input[type=text]{
+    font-size: 1em;
+}
+
+
+/*SELECT*/
+optgroup{
+    font-size: 16px;
+}
+
+select{
+    height: 33px;
+}
+
+@media screen and (max-width:414px){
+    h1{
+        font-size: 1.5em;
+    }
+
+}
+
+/* TEXTAREA*/
+#notes{
+    font-size: 16px;
+}
+
+#advance{
+    font-size: 16px;
+}
+
+input{
+    font-size: 16px;
+}
+
+select{
+    font-size: 16px;
+}
