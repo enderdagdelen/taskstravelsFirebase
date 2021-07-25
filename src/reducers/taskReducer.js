@@ -25,6 +25,8 @@ const taskReducer = (state=[], action) => {
                 return id !== action.id
             })
         
+        case 'FETCH_TASK':
+            return action.tasks
         
         default:
            return state;

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import TaskForm from '../components/TaskForm';
 import moment from 'moment'
-import {editTask, removeTask} from '../actions/task'
+import {initiateEditTask, initiateRemoveTask} from '../actions/task'
 
 const EditTask = (props) => {
     return (
@@ -14,7 +14,9 @@ const EditTask = (props) => {
             <TaskForm 
                 taskToEdit={props.task} 
                 onSubmit = {(task)=>{
-                    props.dispatch(editTask(props.match.params.id,task))
+                    props.dispatch(initiateEditTask(props.match.params.id,task))
+
+                    setTimeout(()=>{props.history.push('/taskspage')},2000)
                 }}
             />
 
@@ -34,7 +36,7 @@ const EditTask = (props) => {
 
                             
                             if(document.getElementById('nametoerase').value === props.task.name){
-                                props.dispatch(removeTask(props.match.params.id))
+                                props.dispatch(initiateRemoveTask(props.match.params.id))
                                 document.getElementById('nametoerase').value = "Record Removed - Redirecting To Tasks Page"
 
                                 setTimeout(()=>{props.history.push('/taskspage')},2000)

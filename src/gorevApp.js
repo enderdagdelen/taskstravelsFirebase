@@ -13,7 +13,7 @@ import configureStore from './store/configureStore'
 const store = configureStore()
 
 //Redux Action Generators
-//import {addTask} from './actions/task.js'
+import {initiateFetchTask} from './actions/task.js'
 import {addTravel} from './actions/travel.js'
 
 // Redux visible tasks and travels
@@ -63,6 +63,8 @@ import 'react-dates/lib/css/_datepicker.css';
 
 //moment
 import moment from 'moment'
+
+
 import { addPersonToMeetRow_Task, 
         addTimeOfReturnRow_Task,
         addTimeOfLeaveRow_Task,
@@ -256,4 +258,11 @@ const jsx = (
 )
 
 
-ReactDOM.render(jsx , document.getElementById('app'));
+ReactDOM.render(<p>Loading...</p> , document.getElementById('app'));
+
+
+store.dispatch(initiateFetchTask()).then(()=>{
+
+    ReactDOM.render(jsx , document.getElementById('app'));
+
+})
