@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
-import firebase from '../firebase/firebase'
+import {firebase} from '../firebase/firebase'
 const Header = () => (
     <header>
         <h1>Tasks&BusinessTravels</h1>
