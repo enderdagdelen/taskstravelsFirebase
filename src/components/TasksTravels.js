@@ -2,6 +2,7 @@ import React from 'react';
 import TaskList from './TaskList.js';
 import {Link} from 'react-router-dom'
 import TasksPage from '../components/TasksPage'
+import LoginComponent from '../components/LogIn'
 
 const TasksTravels =()=>(
     <div className="container" id="taskstravels">

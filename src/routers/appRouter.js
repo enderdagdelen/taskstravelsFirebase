@@ -14,12 +14,18 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import TasksPage from '../components/TasksPage'
 import TravelsPage from '../components/TravelsPage'
+import LoginPAge from '../components/LogIn'
+import SignUpPage from '../components/SignUpPage'
+import SignInPage from '../components/SignInPage'
 
 const AppRouter = () => (
     <BrowserRouter>
     <div>
         <Header/>
         <Switch>
+            <Route path="/signin" component={SignInPage} />
+            <Route path="/login" component={LoginPAge} />
+            <Route path='/signup' component={SignUpPage} />
             <Route path="/" component={TasksTravels} exact={true}/>
             <Route path="/taskspage" component={TasksPage} />
             <Route path='/travelspage' component={TravelsPage} />

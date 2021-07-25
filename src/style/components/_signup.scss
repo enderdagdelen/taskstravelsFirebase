@@ -1,0 +1,56 @@
+#signupform{
+    width:25%;
+    margin:auto;
+    margin-top:100px;
+    border: 1px lightgray solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#signupform p{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+#signupform #signUpError{
+    font-size: 12px;
+    color: red;
+    text-align: left;
+    margin: 10px;
+}
+
+
+#signupform #signupbtn{
+    border-radius: 10px;
+}
+
+// sign in form
+#signInform{
+    width:25%;
+    margin:auto;
+    margin-top:100px;
+    border: 1px lightgray solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#signInform p{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+#signInform #signUpError{
+    font-size: 12px;
+    color: red;
+    text-align: left;
+    margin: 10px;
+}
+
+
+#signInform #signupbtn{
+    border-radius: 10px;
+}

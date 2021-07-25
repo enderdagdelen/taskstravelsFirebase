@@ -6,7 +6,7 @@ import TravelFilterComponent from '../components/TravelFilter'
 const TravelsPage = () => (
     <div id="travelspage">
         <h1 className="text-center ">TRAVELS PAGE</h1> 
-        <Link to='/' className=""><i className="fas fa-home fa-2x"></i>_Home Page</Link>   
+        <Link to='/main' className=""><i className="fas fa-home fa-2x"></i>_Home Page</Link>   
         
         <TravelFilterComponent/>
 
