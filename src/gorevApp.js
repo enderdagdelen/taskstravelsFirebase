@@ -14,7 +14,7 @@ const store = configureStore()
 
 //Redux Action Generators
 import {initiateFetchTask} from './actions/task.js'
-import {addTravel} from './actions/travel.js'
+import {initiateFetchTravel} from './actions/travel.js'
 
 // Redux visible tasks and travels
 import getVisibleTasks from './selectors/taskSelector'
@@ -263,6 +263,8 @@ ReactDOM.render(<p>Loading...</p> , document.getElementById('app'));
 
 store.dispatch(initiateFetchTask()).then(()=>{
 
-    ReactDOM.render(jsx , document.getElementById('app'));
+    store.dispatch(initiateFetchTravel()).then(()=>{
+        ReactDOM.render(jsx , document.getElementById('app'));
+    })
 
 })

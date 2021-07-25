@@ -1,14 +1,14 @@
 import React from 'react';
 import TravelFrom from '../components/TravelForm';
 import { connect } from 'react-redux';
-import { addTravel } from '../actions/travel';
+import { initiateAddTravel } from '../actions/travel';
 
 const AddBusinessTravel = (props) => (
     <div>
         Add Business Travel
         <TravelFrom 
             onSubmit = {(bussinessTravel)=>{
-                props.dispatch(addTravel(bussinessTravel))
+                props.dispatch(initiateAddTravel(bussinessTravel))
                 console.log(bussinessTravel)
                 setTimeout(()=>{props.history.push('/travelspage')},750)
             }}

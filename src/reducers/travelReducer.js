@@ -21,7 +21,10 @@ const travelReducer = (state=[],action) => {
                     return travel
                 }
             })
-
+        
+        case 'FETCH_TRAVEL':
+            return action.travels
+            
         default:
             return state;
     }

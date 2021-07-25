@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import TravelForm from './TravelForm'
-import { editTravel,removeTravel } from '../actions/travel';
+import { initiateEditTravel, initiateRemoveTravel } from '../actions/travel';
 
 
 const EditTravel = (props) => {
@@ -16,7 +16,7 @@ const EditTravel = (props) => {
 
                 bussinessTravel = {props.travel}
                 onSubmit = {(travel) => {
-                    props.dispatch(editTravel(props.match.params.id,travel))
+                    props.dispatch(initiateEditTravel(props.match.params.id,travel))
                     setTimeout(()=>{props.history.push('/travelspage')},750)
                 }}
             />
@@ -37,7 +37,7 @@ const EditTravel = (props) => {
 
                                 
                                 if(document.getElementById('nametoerase').value === props.travel.name){
-                                    props.dispatch(removeTravel(props.match.params.id))
+                                    props.dispatch(initiateRemoveTravel(props.match.params.id))
                                     document.getElementById('nametoerase').value = "Record Removed - Redirecting To Travels Page"
 
                                     setTimeout(()=>{props.history.push('/travelspage')},2000)
