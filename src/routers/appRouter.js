@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Link, NavLink, Switch} from 'react-router-dom'
-
+import {Router, Route, Link, NavLink, Switch} from 'react-router-dom'
 
 import TasksTravels from '../components/TasksTravels'
 import AddTask from '../components/AddTasks'
@@ -17,9 +16,16 @@ import TravelsPage from '../components/TravelsPage'
 import LoginPAge from '../components/LogIn'
 import SignUpPage from '../components/SignUpPage'
 import SignInPage from '../components/SignInPage'
+import AddCompany from '../components/AddCompany'
 
+//---- forredirecting
+import createHistory from 'history/createBrowserHistory';
+export const history = createHistory()
+//---
+//--PrivateRoute
+import PrivateRoute from './PrivateRoute';
 const AppRouter = () => (
-    <BrowserRouter>
+    <Router history={history}> 
     <div>
         <Header/>
         <Switch>
@@ -29,10 +35,11 @@ const AppRouter = () => (
             <Route path="/" component={TasksTravels} exact={true}/>
             <Route path="/taskspage" component={TasksPage} />
             <Route path='/travelspage' component={TravelsPage} />
-            <Route path="/addtask" component={AddTask} />
-            <Route path="/addbusinesstravel" component={AddBusinessTravel} />
-            <Route path="/edittask/:id" component={EditTask} />
-            <Route path ="/edittravel/:id" component={EditTravel} />
+            <Route path= '/addcompany' component = {AddCompany} />
+            <PrivateRoute path="/addtask" component={AddTask} />
+            <PrivateRoute path="/addbusinesstravel" component={AddBusinessTravel} />
+            <PrivateRoute path="/edittask/:id" component={EditTask} />
+            <PrivateRoute path ="/edittravel/:id" component={EditTravel} />
             <Route path="/contact" component={Contact} />
             <Route path="/help" component = {Help}/>
             <Route component={PageNotFound} />
@@ -40,7 +47,7 @@ const AppRouter = () => (
         <Footer/>
     </div>
     
-</BrowserRouter>
+</Router>
 )
 
 

@@ -23,8 +23,8 @@ module.exports = (env, argv) => {
     
         mode:'development',
         entry: './src/gorevApp.js',
-        //entry: './playground/hoc.js',
-        //entry: './src/redux_structure/redux.js',
+        //entry: './src/redux_structure/deneme.js',
+        //entry: './src/redux_structure/redux2.js',
         output:{
             path:path.join(__dirname,'public'),
             filename:'bundle.js'

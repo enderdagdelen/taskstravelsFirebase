@@ -3,6 +3,8 @@ import 'firebase/auth'
 import 'firebase/database'
 import "firebase/storage";
 
+import React from 'react';
+import { Redirect, useHistory } from 'react-router'
 
 
 const firebaseConfig = {
@@ -23,7 +25,33 @@ const firebaseConfig = {
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
 
-  export {firebase, googleAuthProvider, database as default}; 
+
+// sign up
+  const signup = (email, pwd, props) =>{
+
+    firebase.auth().createUserWithEmailAndPassword(email, pwd)
+        .then((credentials)=>{
+            console.log(credentials);
+            document.getElementById('signUpError').innerHTML="Singed Up Succesfully. Redirecting To Home Page"
+
+            setTimeout(()=>{
+
+                //return <Redirect to ='/' />
+                props.history.push('/')
+            },3000)
+        }).catch((err)=>{
+            document.getElementById('signUpError').innerHTML=err
+        })
+
+
+  }
+
+
+
+
+  export {firebase, googleAuthProvider, signup, database as default}; 
+
+
 /*
   firebase.database().ref().set({
       name:"Ender Dagdelen",

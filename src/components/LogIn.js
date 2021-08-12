@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/firebaseAuth';
 
-/*
+
 const LoginComponent = ({startLogin}) => (
     <div>
             <div className="container mb-5 bg-light-gray"  id="loginForm" >
@@ -32,11 +32,11 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 export default connect(undefined, mapDispatchToProps)(LoginComponent)
- */
+ 
 
 
 //alternative version 
-
+/*
 const LoginComponent = ({dispatch}) => (
     <div>
             <div className="container mb-5 bg-light-gray"  id="loginForm" >
@@ -62,3 +62,5 @@ const LoginComponent = ({dispatch}) => (
 
 
 export default connect()(LoginComponent)
+
+*/

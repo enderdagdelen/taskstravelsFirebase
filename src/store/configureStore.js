@@ -1,6 +1,10 @@
 //REDUX
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
 
+//THUNK
+import thunk from 'redux-thunk'
+
+
 //REDUCERS
 import taskReducer from '../reducers/taskReducer'
 import travelReducer from '../reducers/travelReducer'
@@ -8,8 +12,10 @@ import taskFilterReducer from '../reducers/taskFilterReducer'
 import travelFilterReducer from '../reducers/travelFilterReducer'
 import taskRowReducer from '../reducers/taskRowReducer'
 import travelRowReducer from '../reducers/travelRowReducer'
+import companyReducer from '../reducers/companyReducer'
+import personelReducer from '../reducers/personelReducer'
+import authReducer from '../reducers/auth'
 
-import thunk from 'redux-thunk'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -21,7 +27,10 @@ const store = createStore(combineReducers(
         taskFilters:taskFilterReducer,
         travelFilters:travelFilterReducer,
         taskRows:taskRowReducer,
-        travelRows:travelRowReducer
+        travelRows:travelRowReducer,
+        auth:authReducer,
+        companies:companyReducer,
+        personels:personelReducer
     }
 ), 
 composeEnhancers(applyMiddleware(thunk))

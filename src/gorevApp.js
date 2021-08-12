@@ -6,15 +6,17 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 
 //router
-import AppRouter from './routers/appRouter';
+import AppRouter, {history} from './routers/appRouter';
 
 // Redux Store
 import configureStore from './store/configureStore'
 const store = configureStore()
 
+
 //Redux Action Generators
 import {initiateFetchTask} from './actions/task.js'
 import {initiateFetchTravel} from './actions/travel.js'
+import { signin, signout } from './actions/firebaseAuth';
 
 // Redux visible tasks and travels
 import getVisibleTasks from './selectors/taskSelector'
@@ -28,6 +30,8 @@ import 'react-dates/lib/css/_datepicker.css';
 
 //firebase
 import {firebase} from './firebase/firebase';
+
+
 
 
 
@@ -48,19 +52,35 @@ const jsx = (
 ReactDOM.render(<p>Loading...</p> , document.getElementById('app'));
 
 
-store.dispatch(initiateFetchTask()).then(()=>{
 
-    store.dispatch(initiateFetchTravel()).then(()=>{
+// for not re-loading the app
+let hasRendered = false
+const renderApp = () => {
+    if(!hasRendered){
         ReactDOM.render(jsx , document.getElementById('app'));
-    })
+        hasRendered = true
+    }
 
-})
+}
 
-//auth işlemleri kontolü için yazldı silinecek.
+
 firebase.auth().onAuthStateChanged((user)=>{
     if(user){
-        console.log("login");
+
+        store.dispatch(signin(user.uid))
+        store.dispatch(initiateFetchTask()).then(()=>{
+
+            store.dispatch(initiateFetchTravel()).then(()=>{
+                renderApp()
+            })
+        })
+
     }else{
+        store.dispatch(signout())
+
+        renderApp()
         console.log("logout");
+        history.push('/')
+
     }
 })
