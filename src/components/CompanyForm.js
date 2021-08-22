@@ -14,15 +14,15 @@ class CompanyForm extends React.Component{
                     <div className="row p-3">
                         <div className="col-sm-4">
                             <label htmlFor="companyName">Company Name</label>
-                            <input type="text" className="form-control" required/>
+                            <input type="text" className="form-control" id="companyName_input" required/>
                         </div>              
                         <div className="col-sm-4">
                             <label htmlFor="generalDirector">General Director</label>
-                            <input type="text" className="form-control"/>
+                            <input type="text" className="form-control" id="generalDirector_input"/>
                         </div>    
                         <div className="col-sm-4">
                             <label htmlFor="deputy1">Deputy GM 1</label>
-                            <input type="text" className="form-control"/>
+                            <input type="text" className="form-control" id="deputy1_input"/>
                         </div>                       
                     
                     </div>
@@ -32,37 +32,181 @@ class CompanyForm extends React.Component{
                     <div className="row p-3">
                         <div className="col-sm-4">
                             <label htmlFor="deputy2">Deputy GM 2</label>
-                            <input type="text" className="form-control"/>
+                            <input type="text" className="form-control" id="deputy2_input"/>
                         </div>              
                         <div className="col-sm-4">
                             <label htmlFor="deputy3">Deputy GM 3</label>
-                            <input type="text" className="form-control"/>
+                            <input type="text" className="form-control" id="deputy3_input"/>
                         </div>    
                         <div className="col-sm-4">
                             <label htmlFor="deputy4">Deputy GM 4</label>
-                            <input type="text" className="form-control"/>
+                            <input type="text" className="form-control" id="deputy4_input"/>
                         </div>       
 
                     </div>
-
+                    <br></br>
 
 
                     <div className="row p-3">
                         <div className="col-sm-4">
-                            <label htmlFor="deputy4">Deputy GM 4</label>
-                            <input type="text" className="form-control"/>
+                            <label htmlFor="foundedOn">Founded On</label>
+                            <input type="text" className="form-control" id="foundedOn_input"/>
                         </div>              
                         <div className="col-sm-4">
-                            <label htmlFor="deputy2">Deputy GM</label>
-                            <input type="text" className="form-control"/>
+                            <label htmlFor="numberOfEmployees">Number Of Employees</label>
+                            <input type="text" className="form-control" id="numberOfEmployees_input"/>
                         </div>    
                         <div className="col-sm-4">
-                            <label htmlFor="deputy3">Deputy GM</label>
-                            <input type="text" className="form-control"/>
+                            <label htmlFor="deputy3">Language</label>
+                            <input type="text" className="form-control" id="language_input"/>
                         </div>            
                     </div>
 
+                    <hr></hr>
+                    <div className="row p-4 bg-secondary mx-2">
+                        <div className="col-sm-6 form-check">  
+                            <input className="form-check-input" type="checkbox" value="" id="passiveWork"/>
+                            <label className="form-check-label text-info" htmlFor="passiveWork">Passive Work On Weekend</label>
+                        </div>
+                        <div className="col-sm-6 form-check">  
+                            <input className="form-check-input" type="checkbox" value="" id="activeWork"/>
+                            <label className="form-check-label text-info" htmlFor="activeWork">Active Work On Weekend</label>
+                        </div>
+                        <small className="text-light"><i>-"These Information Helps Overtime To Be Calculated Correctly"-</i></small>
+                    </div>
+                    <hr></hr>
 
+                    {/* Workday Shift Hours */}
+
+                    <div className="row p-4">
+                        <div className="col-sm-5">
+                            <div className="row">
+                                <div className="col-6 pt-2">Shifts Start On Weekday At:</div>
+                                <div className="col-3">
+                                    <select className="form-select">
+                                        <optgroup>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div className="col-3">
+                                <select className="form-select">
+                                    <optgroup>
+                                        <option>0</option>
+                                        <option>15</option>
+                                        <option>30</option>
+                                        <option>45</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            </div>
+                        </div>
+                        <div className="col-2 d-none d-lg-block"></div>
+                        <div className="col-sm-5">
+                            <div className="row">
+                                <div className="col-6 p-2">Shifts Ends On Weekday At:</div>
+                                <div className="col-3">
+                                    <select className="form-select" aria-label="Default select example">
+                                        <optgroup>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div className="col-3">
+                                    <select className="form-select" aria-label="Default select example">
+                                        <optgroup>
+                                            <option>0</option>
+                                            <option>15</option>
+                                            <option>30</option>
+                                            <option>45</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        {/* Weekend Shift Hours*/}
+
+                    <div className="row py-4 px-2">
+                        <div className="col-sm-5">
+                            <div className="row">
+                                <div className="col-6 pt-2">Shifts Start On Weekend At:</div>
+                                <div className="col-3">
+                                    <select className="form-select">
+                                        <optgroup>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div className="col-3">
+                                <select className="form-select">
+                                    <optgroup>
+                                        <option>0</option>
+                                        <option>15</option>
+                                        <option>30</option>
+                                        <option>45</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            </div>
+                        </div>
+                        <div className="col-2 d-none d-lg-block"></div>{/* just to sparate other divs */}
+                        <div className="col-sm-5">
+                            <div className="row">
+                                <div className="col-6 pt-2">Shifts Ends On Weekend At:</div>
+                                <div className="col-3">
+                                    <select className="form-select" aria-label="Default select example">
+                                        <optgroup>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div className="col-3">
+                                    <select className="form-select" aria-label="Default select example">
+                                        <optgroup>
+                                            <option>0</option>
+                                            <option>15</option>
+                                            <option>30</option>
+                                            <option>45</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
 
                 
                 </form>
@@ -76,96 +220,3 @@ class CompanyForm extends React.Component{
 }
 
 export default CompanyForm
-/*
-    <div className="user-details">
-    <div className="input-box">
-        <span className="details">Company Name</span>
-        <input type="text" placeholder="Enter Company Name" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Board Members</span>
-        <input type="text" placeholder="Enter Board Members Name" />
-    </div>
-    <div className="input-box">
-        <span className="details">General Director</span>
-        <input type="text" placeholder="Enter General Director Name" />
-    </div>
-    <div className="input-box">
-        <span className="details">Deputy Director General 1</span>
-        <input type="text" placeholder="Enter Deputy Director General 1 Name" />
-    </div>
-    <div className="input-box">
-        <span className="details">Deputy Director General 2</span>
-        <input type="text" placeholder="Enter Deputy Director General 2 Name" />
-    </div>
-    <div className="input-box">
-        <span className="details">Deputy Director General 3</span>
-        <input type="text" placeholder="Enter Deputy Director General 3 Name" />
-    </div>
-    <div className="input-box">
-        <span className="details">Deputy Director General 4</span>
-        <input type="text" placeholder="Enter Deputy Director General 4 Name" />
-    </div>
-    <div className="input-box">
-        <span className="details">Sectors</span>
-        <input type="text" placeholder="Enter Sectors Which Company Operates" />
-    </div>
-    <div className="input-box">
-        <span className="details">Completed Projects</span>
-        <input type="text" placeholder="Enter Completed Projects" />
-    </div>
-    <div className="input-box">
-        <span className="details">On-Going Projects</span>
-        <input type="text" placeholder="Enter On-Going Projects" />
-    </div>
-    <div className="input-box">
-        <span className="details">Number Of Employees</span>
-        <input type="text" placeholder="Number Of Employees" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Language</span>
-        <input type="text" placeholder="Enter Prefered Language" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Active Work On Weekends</span>
-        <input type="text" placeholder="Active Work On Weekend" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Passive Work On Weekend</span>
-        <input type="text" placeholder="Passive Work On Weekend" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Shift Starts At(Hour)</span>
-        <input type="text" placeholder="Hour" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Shift Starts At(Minute)</span>
-        <input type="text" placeholder="Minute" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Shift Ends At</span>
-        <input type="text" placeholder="Hour" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Name</span>
-        <input type="text" placeholder="Enter Your Name" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Name</span>
-        <input type="text" placeholder="Enter Your Name" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Name</span>
-        <input type="text" placeholder="Enter Your Name" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Name</span>
-        <input type="text" placeholder="Enter Your Name" required/>
-    </div>
-    <div className="input-box">
-        <span className="details">Name</span>
-        <input type="text" placeholder="Enter Your Name" required/>
-    </div>
-</div>
-
-                        */
