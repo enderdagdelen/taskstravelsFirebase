@@ -42,7 +42,7 @@ class BoardMembersTable extends React.Component{
     }
 
 
-    checkTheDublicates = (e) => {
+    checkTheDublicates_BoardMember = (e) => {
         const value = document.getElementById('newboardmember').value
         //console.log("value1:"+value);        
         
@@ -102,7 +102,7 @@ class BoardMembersTable extends React.Component{
 
     
 
-    enableRemoveButtons = (e) => {
+    enableRemoveButtons_BM = (e) => {
         e.preventDefault()
         this.setState((prevState)=>{
             return{
@@ -111,7 +111,7 @@ class BoardMembersTable extends React.Component{
         })
     }
 
-    enableEditingButtons = (e) => {
+    enableEditingButtons_BM = (e) => {
         e.preventDefault()
         this.setState((prevState)=>{
             return{
@@ -179,11 +179,11 @@ class BoardMembersTable extends React.Component{
                 <div className="row float-end mb-5 p-2 border">
                     
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="activateRemoveButtons3" onChange={this.enableRemoveButtons}/>
+                            <input className="form-check-input" type="checkbox" value="" id="activateRemoveButtons3" onChange={this.enableRemoveButtons_BM}/>
                             <label className="form-check-label" htmlFor="activateRemoveButtons3">Enable Removing Board Members</label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="activateEditButtons3" onChange={this.enableEditingButtons}  disabled={this.state.currentlyEditing_BM}/>
+                            <input className="form-check-input" type="checkbox" value="" id="activateEditButtons3" onChange={this.enableEditingButtons_BM}  disabled={this.state.currentlyEditing_BM}/>
                             <label className="form-check-label" htmlFor="activateEditButtons3">Enable Editing Board Members</label>
                         </div>
                     
@@ -264,7 +264,7 @@ class BoardMembersTable extends React.Component{
                 <br></br>
                 <div className="row">
                     <div className="col-sm-9">
-                        <input className="form-control" type="text" id="newboardmember" onChange={this.checkTheDublicates} placeholder="Case Sensitive"/>
+                        <input className="form-control" type="text" id="newboardmember" onChange={this.checkTheDublicates_BoardMember} placeholder="Case Sensitive"/>
                     </div>
                     <div className="col-sm-3">
                         <button type="submit"  className="btn btn-primary btn-lg col-12" id="addboardmember" onClick={this.AddBoardMember} >Add Board Member</button>

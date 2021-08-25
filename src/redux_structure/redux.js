@@ -1,7 +1,7 @@
 import {createStore, combineReducers} from 'redux';
 import {v4 as uuidv4} from 'uuid';
 import moment from 'moment';
-
+import '../firebase/firebase_tekrar.js'
 
 
 //******************************************** TASK ACTION GENERATORS AND REDUCER

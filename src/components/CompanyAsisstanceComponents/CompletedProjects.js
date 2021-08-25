@@ -18,9 +18,9 @@ class CompletedPrjectsTable extends React.Component{
         }
     }
 
-    AddProject = (e) => {
+    AddCompletedProject = (e) => {
         e.preventDefault()
-        let value = document.getElementById('newproject').value
+        let value = document.getElementById('completedproject').value
         if(value.length > 3){
             this.setState(()=>{
                 return{
@@ -38,18 +38,18 @@ class CompletedPrjectsTable extends React.Component{
                 }
             })
         }
-        document.getElementById('newproject').value=""
+        document.getElementById('completedproject').value=""
     }
 
 
-    checkTheDublicates = (e) => {
-        const value = document.getElementById('newproject').value
+    checkTheDublicates_CompletedProjects = (e) => {
+        const value = document.getElementById('completedproject').value
         //console.log("value1:"+value);        
         
 
         if(this.state.projects_CP.includes(value)){
             //console.log("dublicate");
-            document.getElementById('addproject').disabled = true
+            document.getElementById('addcompletedproject').disabled = true
             this.setState(()=>{
                 return{
                     dublicateError_CP:`${value} Project Already Exists In The Projects Folder.`
@@ -60,7 +60,7 @@ class CompletedPrjectsTable extends React.Component{
            
 
         }else{
-            document.getElementById('addproject').disabled = false
+            document.getElementById('addcompletedproject').disabled = false
             this.setState(()=>{
                 return{
                     dublicateError_CP:""
@@ -71,11 +71,11 @@ class CompletedPrjectsTable extends React.Component{
 
         let dublicates = []
         let dublicatesString = ""
-        this.state.projects_CP.map((project)=>{
+        this.state.projects_CP.map((completedproject)=>{
 
-            if(project.includes(value) || value.includes(project)){
+            if(completedproject.includes(value) || value.includes(completedproject)){
                //console.log("value2:"+value);
-               dublicates.push(project)
+               dublicates.push(completedproject)
                
                dublicatesString = dublicates.toString()
                //console.log("dublicatesString"+dublicatesString);
@@ -86,7 +86,7 @@ class CompletedPrjectsTable extends React.Component{
        if(dublicates.length > 0){
         this.setState(()=>{
             return{
-                dublicateWarning_CP: value !== " " && value !== ""  && `The Phrase ${value} is similar to An Existing Project: ${dublicatesString}`
+                dublicateWarning_CP: value !== " " && value !== ""  && `The Phrase ${value} is similar to A Completed Project: ${dublicatesString}`
             }
             })
        }else{
@@ -102,7 +102,7 @@ class CompletedPrjectsTable extends React.Component{
 
     
 
-    enableRemoveButtons = (e) => {
+    enableRemoveButtons_CP = (e) => {
         e.preventDefault()
         this.setState((prevState)=>{
             return{
@@ -111,7 +111,7 @@ class CompletedPrjectsTable extends React.Component{
         })
     }
 
-    enableEditingButtons = (e) => {
+    enableEditingButtons_CP = (e) => {
         e.preventDefault()
         this.setState((prevState)=>{
             return{
@@ -122,13 +122,13 @@ class CompletedPrjectsTable extends React.Component{
     }
 
 
-    removeProject = (event,prj) => {
+    removeCompletedProject = (event,prj) => {
         event.preventDefault()
         
         this.setState(()=>{
             return{
-                projects_CP:this.state.projects_CP.filter((project)=>{
-                    return project !== prj
+                projects_CP:this.state.projects_CP.filter((completedproject)=>{
+                    return completedproject !== prj
                 })
             }
         }) 
@@ -136,7 +136,7 @@ class CompletedPrjectsTable extends React.Component{
     }
     //--------------------------------------------------------------------------------------------------------Working On
 
-    editProject = (event, prj)=>{
+    editCompletedProject = (event, comp_prj)=>{// prj - comp_prj
         event.preventDefault()
 
         this.setState(()=>{
@@ -145,26 +145,26 @@ class CompletedPrjectsTable extends React.Component{
             }
         })
 
-        document.getElementById(prj).disabled = false
-        document.getElementById(prj).style.background = "yellow"
+        document.getElementById(comp_prj).disabled = false
+        document.getElementById(comp_prj).style.background = "yellow"
 
-        const newProject = document.getElementById(prj).value
+        const completedProject = document.getElementById(comp_prj).value
 
-        if(prj !== "" && prj !== " " && prj !== newProject){
+        if(comp_prj !== "" && comp_prj !== " " && comp_prj !== completedProject){
 
-            let index = this.state.projects_CP.indexOf(prj)
+            let index = this.state.projects_CP.indexOf(comp_prj)
 
-            let currentProjects = this.state.projects_CP
-            currentProjects[index]=newProject 
+            let completedProjects = this.state.projects_CP
+            completedProjects[index]=completedProject 
 
             this.setState(()=>{
                 return{
-                    projects_CP:currentProjects,
+                    projects_CP:completedProjects,
                     currentlyEditing_CP:false
                 }
             })
 
-            document.getElementById(prj).disabled = true
+            document.getElementById(comp_prj).disabled = true
         }
     }
 
@@ -177,12 +177,12 @@ class CompletedPrjectsTable extends React.Component{
                 <div className="row float-end mb-5 p-2 border">
                     <div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="activateRemoveButtons1" onChange={this.enableRemoveButtons}/>
-                            <label className="form-check-label" htmlFor="activateRemoveButtons1">Enable Removing Projects</label>
+                            <input className="form-check-input" type="checkbox" value="" id="activateRemoveButtons1" onChange={this.enableRemoveButtons_CP}/>
+                            <label className="form-check-label" htmlFor="activateRemoveButtons1">Enable Removing Completed Projects</label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="activateEditButtons1" onChange={this.enableEditingButtons} disabled={this.state.currentlyEditing_CP}/>
-                            <label className="form-check-label" htmlFor="activateEditButtons1">Enable Editing Projects</label>
+                            <input className="form-check-input" type="checkbox" value="" id="activateEditButtons1" onChange={this.enableEditingButtons_CP} disabled={this.state.currentlyEditing_CP}/>
+                            <label className="form-check-label" htmlFor="activateEditButtons1">Enable Editing Completed Projects</label>
                         </div>
                     
                     </div>
@@ -191,16 +191,16 @@ class CompletedPrjectsTable extends React.Component{
       
 
                 <div className="row">
-                     <h2>Number Of projects_CP: -<strong>{this.state.projects_CP.length}-</strong></h2>
+                     <h2>Number Of Completed Projects: -<strong>{this.state.projects_CP.length}-</strong></h2>
 
                 </div>
 
                 <br></br>
                 {this.state.enableRemoveProjects_CP === false && <div className="alert alert-danger my-5">
-                                                <p>Be Carefull, <strong>Remove Buttons</strong> Are Activated!!!</p>
+                                                <p>Be Carefull, <strong>Remove Buttons For Completed Projects</strong> Are Activated!!!</p>
                                             </div>}
                 {this.state.enableEditingProjects_CP === false && <div className="alert alert-danger my-5">
-                                            <p>Be Carefull, <strong>Editing Buttons</strong> Are Activated!!!</p>
+                                            <p>Be Carefull, <strong>Editing Buttons For Completed Projects</strong> Are Activated!!!</p>
                                             </div>}
           
                 
@@ -220,21 +220,21 @@ class CompletedPrjectsTable extends React.Component{
                     </thead>
                     <tbody>
                     {
-                        this.state.projects_CP.map((project)=>{
+                        this.state.projects_CP.map((completed_project)=>{
                         return(
-                            <tr key={project}>
-                                <th scope="row" >{this.state.projects_CP.indexOf(project) + 1}</th>
+                            <tr key={completed_project}>
+                                <th scope="row" >{this.state.projects_CP.indexOf(completed_project) + 1}</th>
                                 <td ><div><input className="from-control border-0 col-12" 
                                 style={this.state.trInputStyle_CP === true ? {background:"transparent"}:{color:"red"}} 
 
-                                defaultValue={project} id={project} disabled /></div></td>
+                                defaultValue={completed_project} id={completed_project} disabled /></div></td>
 
                                 <td ><button 
                                 className="btn btn-danger btn-lg"
-                                value={project}
+                                value={completed_project}
                                 id="removeProject"
                                 onClick={(event)=>{
-                                    this.removeProject(event,project)
+                                    this.removeCompletedProject(event,completed_project)
                                 }}
                                 disabled={this.state.enableRemoveProjects_CP}
 
@@ -246,7 +246,7 @@ class CompletedPrjectsTable extends React.Component{
                                     className="btn btn-secondary btn-lg" 
                                     id="editProject"
                                     onClick={(event)=>{
-                                        this.editProject(event,project)
+                                        this.editCompletedProject(event,completed_project)
                                     }}
                                     disabled={this.state.enableEditingProjects_CP}
                                 ><i className="far fa-edit"></i></button></td>     
@@ -263,10 +263,10 @@ class CompletedPrjectsTable extends React.Component{
                 <br></br>
                 <div className="row">
                     <div className="col-sm-9">
-                        <input className="form-control" type="text" id="newproject" onChange={this.checkTheDublicates} placeholder="Case Sensitive"/>
+                        <input className="form-control" type="text" id="completedproject" onChange={this.checkTheDublicates_CompletedProjects} placeholder="Case Sensitive"/>
                     </div>
                     <div className="col-sm-3">
-                        <button type="submit"  className="btn btn-primary btn-lg col-12" id="addproject" onClick={this.AddProject} >Add A Completed Project</button>
+                        <button type="submit"  className="btn btn-primary btn-lg col-12" id="addcompletedproject" onClick={this.AddCompletedProject} >Add A Completed Project</button>
                     </div>
                 </div>
                 

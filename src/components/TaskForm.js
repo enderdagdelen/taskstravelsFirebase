@@ -113,7 +113,15 @@ class TaskForm extends React.Component{
         },250)
 
     }
-
+    "shiftStarts_Hour_Weekday"
+    "shiftStarts_Min_Weekday"
+    "shiftEns_Hour_Weekday"
+    "shiftEnds_Min_Weekday"
+    "shiftStarts_Hour_Weekend"
+    "shiftStarts_Min_Weekend"
+    "shiftEnds_Hour_Weekend"
+    "shiftEnds_Min_Weekend"
+    
     ToL_MM_onChange = (e) => {
         const mm_ToL_Input = e.target.value;
         this.setState(()=>{

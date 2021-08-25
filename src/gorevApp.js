@@ -29,7 +29,7 @@ import './style/style.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
 //firebase
-import {firebase} from './firebase/firebase';
+import './firebase/firebase'
 
 
 

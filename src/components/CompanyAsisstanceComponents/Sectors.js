@@ -34,7 +34,7 @@ class SectorsTable extends React.Component{
         }else{
             this.setState(()=>{
                 return{
-                    addSectorMessage:'Project Must be At Least 4 Characters Long'
+                    addSectorMessage:'Sector Name or Description Must be At Least 4 Characters Long'
                 }
             })
         }
@@ -177,11 +177,11 @@ class SectorsTable extends React.Component{
                 <div className="row float-end mb-5 p-2 border">
                     <div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="activateRemoveButtons1" onChange={this.enableRemoveButtons_Sector}/>
+                            <input className="form-check-input" type="checkbox" value="" id="activateRemoveButtons4" onChange={this.enableRemoveButtons_Sector}/>
                             <label className="form-check-label" htmlFor="activateRemoveButtons1">Enable Removing Sectors</label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="activateEditButtons1" onChange={this.enableEditingButtons_Sector} disabled={this.state.currentlyEditing_S}/>
+                            <input className="form-check-input" type="checkbox" value="" id="activateEditButtons4" onChange={this.enableEditingButtons_Sector} disabled={this.state.currentlyEditing_S}/>
                             <label className="form-check-label" htmlFor="activateEditButtons1">Enable Editing Sectors</label>
                         </div>
                     

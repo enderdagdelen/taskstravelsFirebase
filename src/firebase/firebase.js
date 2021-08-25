@@ -3,6 +3,60 @@ import 'firebase/auth'
 import 'firebase/database'
 import "firebase/storage";
 
+var firebaseConfig = {
+    apiKey: "AIzaSyC7QtAinjY48rHWBBYOwfSOsEOjaHRlKcg",
+    authDomain: "fir-2-c862f.firebaseapp.com",
+    databaseURL: "https://fir-2-c862f-default-rtdb.firebaseio.com",
+    projectId: "fir-2-c862f",
+    storageBucket: "fir-2-c862f.appspot.com",
+    messagingSenderId: "249754087485",
+    appId: "1:249754087485:web:269939a860ed0bc0607a54"
+  };
+
+  firebase.initializeApp(firebaseConfig)
+  const database = firebase.database()
+
+  database.ref('address/province').remove().then(()=>{console.log("removed");}).catch(()=>{console.log("Failed to Remove");})
+
+
+/*   database.ref().set({ // set then içi boş döner
+      name:"Ender",
+      age:36,
+      occupation:"Agriculture Engineer",
+      address:{
+          city:"Ankara",
+          province:"Yenimahalle",
+          postalcode:"0649089798"
+      }
+  }).then(()=>{
+      console.log("Saved");
+  }).catch((err)=>{
+    console.log(err);
+  })
+
+
+  database.ref('address/province').set("Cankaya")
+  
+  setTimeout(()=>{database.ref('attributes').set({
+      weight:96,
+      height:176
+  }).then(()=>{
+    console.log("Attributes Added");
+  }).catch(()=>{
+    console.log("Attributes Failed");
+  })},2000)
+   */
+
+
+
+
+
+/*
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
+import "firebase/storage";
+
 import React from 'react';
 import { Redirect, useHistory } from 'react-router'
 
