@@ -35,7 +35,7 @@ class CompanyForm extends React.Component{
             hide_boardMembers:true,
             hide_sectors:true,
             //OnGoing Projects Table States
-            projects:["Ankara Göletleri","Van Göletleri","Erzincan Sulaması"],
+            projects:[],
             dublicateMsg:'',
             dublicateError:'',
             dublicateWarning:'',
@@ -46,7 +46,7 @@ class CompanyForm extends React.Component{
             trInputStyle:true,
             currentlyEditing:false,
             //Completed Projects Table States
-            projects_CP:["Kar HES","Muş Karasu Regülatörü","Bingöl Merkez Sulaması"],
+            projects_CP:[],
             dublicateMsg_CP:'',
             dublicateError_CP:'',
             dublicateWarning_CP:'',
@@ -57,7 +57,7 @@ class CompanyForm extends React.Component{
             trInputStyle_CP:true,
             currentlyEditing_CP:false, 
             //BoardMemebers Projects Table States
-            boardMembers:["Adam Smith","Nicola Tesla","Madam Curie"],
+            boardMembers:[],
             dublicateMsg_BM:'',
             dublicateError_BM:'',
             dublicateWarning_BM:'',
@@ -68,7 +68,7 @@ class CompanyForm extends React.Component{
             trInputStyle_BM:true,
             currentlyEditing_BM:false,  
             //Sectors Projects Table States
-            sectors:["İnşaat","Müşavirlik","Proje","Planlama"],
+            sectors:[],
             dublicateMsg_S:'',
             dublicateError_S:'',
             dublicateWarning_S:'',
@@ -86,7 +86,7 @@ class CompanyForm extends React.Component{
     //_______________________________________________Company Name On Change
     companyNameOnChange = (e) => {
         const val = e.target.value
-        const regex = /^[a-zA-Z0-9_ .,:;-_!/"'@$£$#%]*$/
+        const regex = /^[a-zA-Z0-9_ .,:;-_!/"'@$£$#%ıİşŞçÇöÖüÜğĞ]*$/
 
  
         if(val.match(regex)){

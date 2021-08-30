@@ -16,6 +16,7 @@ const store = configureStore()
 //Redux Action Generators
 import {initiateFetchTask} from './actions/task.js'
 import {initiateFetchTravel} from './actions/travel.js'
+import {initiateAddCompany, initiateFetchCompanies} from './actions/companies.js'
 import { signin, signout } from './actions/firebaseAuth';
 
 // Redux visible tasks and travels
@@ -29,7 +30,8 @@ import './style/style.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
 //firebase
-import './firebase/firebase'
+import {firebase} from './firebase/firebase'
+import { render } from 'enzyme/build';
 
 
 
@@ -68,12 +70,23 @@ firebase.auth().onAuthStateChanged((user)=>{
     if(user){
 
         store.dispatch(signin(user.uid))
-        store.dispatch(initiateFetchTask()).then(()=>{
+/*         store.dispatch(initiateFetchTask()).then(()=>{
 
             store.dispatch(initiateFetchTravel()).then(()=>{
-                renderApp()
+                store.dispatch(initiateAddCompany()).then(()=>{
+                    renderApp()
+                })
+            })
+        })  */
+
+        store.dispatch(initiateFetchTask()).then(()=>{
+            store.dispatch(initiateFetchTravel()).then(()=>{
+                store.dispatch(initiateFetchCompanies()).then(()=>{
+                    renderApp()
+                })
             })
         })
+        
 
     }else{
         store.dispatch(signout())

@@ -1,7 +1,7 @@
 import React from 'react';
 import CompanyForm from './CompanyForm';
 import {connect} from 'react-redux'
-import {addCompany} from '../actions/companies';
+import {addCompany, initiateAddCompany} from '../actions/companies';
 
 import OngGoingProjects from '../components/CompanyAsisstanceComponents/OnGoingProjectTable';
 import CompletedPrjectsTable from './CompanyAsisstanceComponents/CompletedProjects';
@@ -10,9 +10,11 @@ import SectorsTable from './CompanyAsisstanceComponents/Sectors';
 
 const AddCompany = (props) => (
     <div className="mb-5 pb-5">
+        
         <CompanyForm 
             onSubmit={(companyInfo)=>{
-                props.dispatch(addCompany(companyInfo))
+                console.log(companyInfo);
+                props.dispatch(initiateAddCompany(companyInfo))
                 props.history.push('/')
             }}
         />

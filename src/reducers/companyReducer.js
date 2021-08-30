@@ -27,6 +27,10 @@ const companyReducer = (state=[], action) => {
                 }
             })
 
+        case 'FETCH_COMPANIES':
+            return action.companies
+
+
         default:
             return state;
     }
